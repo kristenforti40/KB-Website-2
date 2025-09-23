@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useContent } from '../../../context/ContentContext';
 import { NewsPost } from '../../../types';
@@ -104,6 +103,17 @@ const NewsForm: React.FC<{ post: NewsPost | null; onSave: (post: NewsPost) => vo
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setFormData(prev => ({ ...prev, imageUrl: reader.result as string }));
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         onSave({ ...formData, id: post?.id || 0 });
@@ -120,8 +130,20 @@ const NewsForm: React.FC<{ post: NewsPost | null; onSave: (post: NewsPost) => vo
                 <input type="date" name="date" id="date" value={formData.date} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" required />
             </div>
             <div>
-                <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700">Image URL (Optional)</label>
-                <input type="text" name="imageUrl" id="imageUrl" value={formData.imageUrl} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" />
+                <label htmlFor="imageUpload" className="block text-sm font-medium text-gray-700">Image (Optional)</label>
+                 <input 
+                    type="file" 
+                    id="imageUpload" 
+                    accept="image/png, image/jpeg, image/webp"
+                    onChange={handleImageUpload} 
+                    className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-teal/10 file:text-brand-teal hover:file:bg-brand-teal/20 cursor-pointer" 
+                />
+                 {formData.imageUrl && (
+                    <div className="mt-4">
+                        <p className="text-sm font-medium text-gray-700">Preview:</p>
+                        <img src={formData.imageUrl} alt="Preview" className="mt-2 rounded-md border border-gray-200 h-40 object-cover" />
+                    </div>
+                )}
             </div>
             <div>
                 <label htmlFor="content" className="block text-sm font-medium text-gray-700">Content</label>

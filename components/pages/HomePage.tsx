@@ -1,8 +1,7 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useContent } from '../../context/ContentContext';
-
-const heroImageUrl = "https://i.postimg.cc/tgMfDZT5/Gzoktu2-WEAAf-JH2.jpg";
 
 // Helper component for highlight icons
 const HighlightIcon: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -88,12 +87,13 @@ const RacingStatsSection: React.FC = () => {
 
 
 const HomePage: React.FC = () => {
+    const { homePageHeroUrl } = useContent();
     return (
         <div>
             {/* Hero Section */}
             <section
                 className="relative bg-cover bg-center h-[70vh] md:h-[80vh] flex items-center justify-center text-center"
-                style={{ backgroundImage: `url('${heroImageUrl}')` }}
+                style={{ backgroundImage: `url('${homePageHeroUrl}')` }}
             >
                 <div className="absolute inset-0 bg-black/50"></div>
                 <div className="relative z-10 p-4">

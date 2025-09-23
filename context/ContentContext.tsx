@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Horse, TeamMember, SuccessStory, NewsPost, RacingStats } from '../types';
-import { TOP_HORSES, TEAM_MEMBERS, SUCCESS_STORIES, NEWS_POSTS, RACING_STATS } from '../constants';
+import { TOP_HORSES, TEAM_MEMBERS, SUCCESS_STORIES, NEWS_POSTS, RACING_STATS, DEFAULT_HERO_IMAGE } from '../constants';
 
 interface ContentContextType {
     horses: Horse[];
@@ -9,11 +9,15 @@ interface ContentContextType {
     successStories: SuccessStory[];
     newsPosts: NewsPost[];
     racingStats: RacingStats | null;
+    homePageHeroUrl: string;
+    logoUrl: string;
     updateHorses: (newHorses: Horse[]) => void;
     updateTeamMembers: (newTeamMembers: TeamMember[]) => void;
     updateSuccessStories: (newStories: SuccessStory[]) => void;
     updateNewsPosts: (newPosts: NewsPost[]) => void;
     updateRacingStats: (newStats: RacingStats) => void;
+    updateHomePageHeroUrl: (newUrl: string) => void;
+    updateLogoUrl: (newUrl: string) => void;
 }
 
 const ContentContext = createContext<ContentContextType | undefined>(undefined);
@@ -52,6 +56,8 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
     const [successStories, setSuccessStories] = useState<SuccessStory[]>([]);
     const [newsPosts, setNewsPosts] = useState<NewsPost[]>([]);
     const [racingStats, setRacingStats] = useState<RacingStats | null>(null);
+    const [homePageHeroUrl, setHomePageHeroUrl] = useState<string>('');
+    const [logoUrl, setLogoUrl] = useState<string>('');
 
     useEffect(() => {
         setHorses(initializeArrayFromLocalStorage('kbr_horses', TOP_HORSES));
@@ -59,6 +65,8 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
         setSuccessStories(initializeArrayFromLocalStorage('kbr_stories', SUCCESS_STORIES));
         setNewsPosts(initializeArrayFromLocalStorage('kbr_news', NEWS_POSTS));
         setRacingStats(initializeObjectFromLocalStorage('kbr_stats', RACING_STATS));
+        setHomePageHeroUrl(initializeObjectFromLocalStorage('kbr_hero', DEFAULT_HERO_IMAGE));
+        setLogoUrl(initializeObjectFromLocalStorage('kbr_logo', ''));
     }, []);
 
     const updateAndStoreArray = <T,>(setter: React.Dispatch<React.SetStateAction<T[]>>, key: string) => (newData: T[]) => {
@@ -70,6 +78,12 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
         setter(newData);
         localStorage.setItem(key, JSON.stringify(newData));
     };
+    
+    const updateAndStorePrimitive = <T,>(setter: React.Dispatch<React.SetStateAction<T>>, key: string) => (newData: T) => {
+        setter(newData);
+        localStorage.setItem(key, JSON.stringify(newData));
+    };
+
 
     const value = {
         horses,
@@ -77,11 +91,15 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
         successStories,
         newsPosts,
         racingStats,
+        homePageHeroUrl,
+        logoUrl,
         updateHorses: updateAndStoreArray(setHorses, 'kbr_horses'),
         updateTeamMembers: updateAndStoreArray(setTeamMembers, 'kbr_team'),
         updateSuccessStories: updateAndStoreArray(setSuccessStories, 'kbr_stories'),
         updateNewsPosts: updateAndStoreArray(setNewsPosts, 'kbr_news'),
         updateRacingStats: updateAndStoreObject(setRacingStats, 'kbr_stats'),
+        updateHomePageHeroUrl: updateAndStorePrimitive(setHomePageHeroUrl, 'kbr_hero'),
+        updateLogoUrl: updateAndStorePrimitive(setLogoUrl, 'kbr_logo'),
     };
 
     return <ContentContext.Provider value={value}>{children}</ContentContext.Provider>;

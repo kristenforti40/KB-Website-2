@@ -1,62 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { NAVIGATION_DROPDOWNS, NAVIGATION_LINKS } from '../constants';
+import { NAVIGATION_DROPDOWNS, NAVIGATION_LINKS, DEFAULT_LOGO_BASE64 } from '../constants';
 import type { NavDropdown, NavLink } from '../types';
-
-const KBRacingLogo = () => {
-  return (
-    <div className="flex items-center">
-      {/* Left part: Monogram and sub-text */}
-      <div className="flex flex-col items-center flex-shrink-0">
-        <div className="relative w-20 h-20">
-          <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden="true">
-            {/* Teal Circle */}
-            <circle cx="50" cy="50" r="48" stroke="#00B8D4" strokeWidth="4" fill="none" />
-            
-            {/* K (black) */}
-            <text 
-              x="50%" 
-              y="52%" 
-              dominantBaseline="central" 
-              textAnchor="end" 
-              fontFamily="EB Garamond, serif" 
-              fontSize="60" 
-              fontWeight="700" 
-              fill="black"
-              dx="-3"
-            >
-              K
-            </text>
-            
-            {/* B (teal, overlapping K) */}
-            <text 
-              x="50%" 
-              y="52%" 
-              dominantBaseline="central" 
-              textAnchor="start" 
-              fontFamily="EB Garamond, serif" 
-              fontSize="60" 
-              fontWeight="700"
-              fill="#00B8D4"
-              dx="3"
-            >
-              B
-            </text>
-          </svg>
-        </div>
-        <span className="font-serif text-[10px] font-semibold text-stone-800 tracking-widest -mt-3">
-          KERI BRION TRAINER
-        </span>
-      </div>
-      
-      {/* Right part: Racing Text */}
-      <span className="font-serif text-3xl font-bold text-stone-900 tracking-[0.15em] ml-2">
-        RACING
-      </span>
-    </div>
-  );
-};
-
+import { useContent } from '../context/ContentContext';
 
 const Dropdown: React.FC<{ item: NavDropdown, closeMobileMenu: () => void }> = ({ item, closeMobileMenu }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -84,6 +30,7 @@ const Dropdown: React.FC<{ item: NavDropdown, closeMobileMenu: () => void }> = (
 const Header: React.FC = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const { logoUrl } = useContent();
 
     useEffect(() => {
         // Close menu on navigation
@@ -110,7 +57,11 @@ const Header: React.FC = () => {
                 <div className="flex items-center justify-between h-24">
                     <div className="flex-shrink-0">
                         <Link to="/">
-                           <KBRacingLogo />
+                           {logoUrl ? (
+                             <img src={logoUrl} alt="Keri Brion Racing Logo" className="h-20 w-auto" />
+                           ) : (
+                             <img src={DEFAULT_LOGO_BASE64} alt="Keri Brion Racing Logo" className="h-20 w-auto" />
+                           )}
                         </Link>
                     </div>
                     {/* Desktop Navigation */}

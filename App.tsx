@@ -25,6 +25,8 @@ import ManageTeamPage from './components/pages/admin/ManageTeamPage';
 import ManageStoriesPage from './components/pages/admin/ManageStoriesPage';
 import ManageNewsPage from './components/pages/admin/ManageNewsPage';
 import ManageStatsPage from './components/pages/admin/ManageStatsPage';
+import ManageHomepagePage from './components/pages/admin/ManageHomepagePage';
+import ManageBrandingPage from './components/pages/admin/ManageBrandingPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -50,6 +52,8 @@ const App: React.FC = () => {
                 <AdminLayout>
                   <Routes>
                     <Route path="/" element={<AdminDashboard />} />
+                    <Route path="/homepage" element={<ManageHomepagePage />} />
+                    <Route path="/branding" element={<ManageBrandingPage />} />
                     <Route path="/stats" element={<ManageStatsPage />} />
                     <Route path="/horses" element={<ManageHorsesPage />} />
                     <Route path="/team" element={<ManageTeamPage />} />

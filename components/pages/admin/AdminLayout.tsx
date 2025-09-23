@@ -12,6 +12,8 @@ const AdminLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
     const navItems = [
         { name: 'Dashboard', path: '/admin' },
+        { name: 'Home Page', path: '/admin/homepage' },
+        { name: 'Logo & Branding', path: '/admin/branding' },
         { name: 'Racing Stats', path: '/admin/stats' },
         { name: 'Horses', path: '/admin/horses' },
         { name: 'Team', path: '/admin/team' },

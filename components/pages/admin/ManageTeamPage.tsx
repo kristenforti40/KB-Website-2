@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useContent } from '../../../context/ContentContext';
 import { TeamMember } from '../../../types';
@@ -96,12 +95,23 @@ const TeamForm: React.FC<{ member: TeamMember | null; onSave: (member: TeamMembe
         name: member?.name || '',
         role: member?.role || '',
         bio: member?.bio || '',
-        imageUrl: member?.imageUrl || 'https://picsum.photos/seed/newmember/400/400',
+        imageUrl: member?.imageUrl || '',
     });
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setFormData(prev => ({ ...prev, imageUrl: reader.result as string }));
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -120,8 +130,20 @@ const TeamForm: React.FC<{ member: TeamMember | null; onSave: (member: TeamMembe
                 <input type="text" name="role" id="role" value={formData.role} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" required />
             </div>
             <div>
-                <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700">Image URL</label>
-                <input type="text" name="imageUrl" id="imageUrl" value={formData.imageUrl} onChange={handleChange} className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3" required />
+                <label htmlFor="imageUpload" className="block text-sm font-medium text-gray-700">Image</label>
+                <input 
+                    type="file" 
+                    id="imageUpload" 
+                    accept="image/png, image/jpeg, image/webp"
+                    onChange={handleImageUpload} 
+                    className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-teal/10 file:text-brand-teal hover:file:bg-brand-teal/20 cursor-pointer" 
+                />
+                 {formData.imageUrl && (
+                    <div className="mt-4">
+                        <p className="text-sm font-medium text-gray-700">Preview:</p>
+                        <img src={formData.imageUrl} alt="Preview" className="mt-2 rounded-md border border-gray-200 h-40 w-40 object-cover" />
+                    </div>
+                )}
             </div>
             <div>
                 <label htmlFor="bio" className="block text-sm font-medium text-gray-700">Bio</label>
