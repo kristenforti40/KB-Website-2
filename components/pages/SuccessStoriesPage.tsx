@@ -26,7 +26,11 @@ const Story: React.FC<{ story: SuccessStory, index: number }> = ({ story, index 
             </div>
             <div className="w-full md:w-7/12">
                  <h3 className="text-3xl font-semibold text-stone-900 mb-3">{story.title}</h3>
-                 <p className="text-stone-700 text-lg">{story.description}</p>
+                 <div className="text-stone-700 text-lg space-y-3">
+                    {story.description.split('\n').map((paragraph, index) => (
+                        paragraph.trim() && <p key={index}>{paragraph}</p>
+                    ))}
+                 </div>
             </div>
         </div>
     );

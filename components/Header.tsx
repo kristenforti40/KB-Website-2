@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { NAVIGATION_DROPDOWNS, NAVIGATION_LINKS, DEFAULT_LOGO_BASE64 } from '../constants';
+import { NAVIGATION_DROPDOWNS, NAVIGATION_LINKS } from '../constants';
 import type { NavDropdown, NavLink } from '../types';
 import { useContent } from '../context/ContentContext';
+import KBRacingLogo from './KBRacingLogo';
 
 const Dropdown: React.FC<{ item: NavDropdown, closeMobileMenu: () => void }> = ({ item, closeMobileMenu }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +61,7 @@ const Header: React.FC = () => {
                            {logoUrl ? (
                              <img src={logoUrl} alt="Keri Brion Racing Logo" className="h-20 w-auto" />
                            ) : (
-                             <img src={DEFAULT_LOGO_BASE64} alt="Keri Brion Racing Logo" className="h-20 w-auto" />
+                             <KBRacingLogo />
                            )}
                         </Link>
                     </div>

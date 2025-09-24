@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useContent } from '../../context/ContentContext';
@@ -80,7 +81,9 @@ const RacingStatsSection: React.FC = () => {
                     <StatCard label="Earnings" value={racingStats.career.earnings} />
                 </div>
             </div>
-             <p className="text-center text-xs text-stone-500 mt-6">Stats are manually updated. For real-time data, visit the official Equibase site.</p>
+             <p className="text-center text-xs text-stone-500 mt-6">
+                Stats are manually updated. For real-time data, visit the official Equibase site <a href="https://www.equibase.com/profiles/Results.cfm?type=People&searchType=T&eID=954090&rbt=TB" target="_blank" rel="noopener noreferrer" className="text-brand-teal hover:underline">here</a>.
+            </p>
         </div>
     );
 };
@@ -97,9 +100,9 @@ const HomePage: React.FC = () => {
             >
                 <div className="absolute inset-0 bg-black/50"></div>
                 <div className="relative z-10 p-4">
-                    <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg leading-tight">KB Racing</h1>
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg leading-tight">Elite Thoroughbred Training</h2>
-                    <p className="text-lg md:text-xl text-stone-200 max-w-2xl mx-auto mb-8 drop-shadow-lg">
+                    <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-2xl leading-tight">KB Racing</h1>
+                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-2xl leading-tight">Elite Thoroughbred Training</h2>
+                    <p className="text-lg md:text-xl text-stone-200 max-w-2xl mx-auto mb-8 drop-shadow-2xl">
                         Dual purpose racehorse trainer based at Fair Hill Training Center
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">

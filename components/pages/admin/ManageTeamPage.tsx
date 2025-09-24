@@ -107,8 +107,14 @@ const TeamForm: React.FC<{ member: TeamMember | null; onSave: (member: TeamMembe
         const file = e.target.files?.[0];
         if (file) {
             const reader = new FileReader();
-            reader.onloadend = () => {
-                setFormData(prev => ({ ...prev, imageUrl: reader.result as string }));
+            reader.onload = () => {
+                // FIX: The type of reader.result is 'string | ArrayBuffer | null'.
+                // We need to ensure it's a string before setting the state.
+                // Assigning to a variable helps TypeScript with type inference inside the closure.
+                const result = reader.result;
+                if (typeof result === 'string') {
+                    setFormData(prev => ({ ...prev, imageUrl: result }));
+                }
             };
             reader.readAsDataURL(file);
         }

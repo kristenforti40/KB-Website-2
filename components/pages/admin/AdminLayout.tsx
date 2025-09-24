@@ -15,10 +15,16 @@ const AdminLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
         { name: 'Home Page', path: '/admin/homepage' },
         { name: 'Logo & Branding', path: '/admin/branding' },
         { name: 'Racing Stats', path: '/admin/stats' },
+        { name: 'Meet Keri Page', path: '/admin/meet-keri' },
+        { name: 'Training Page', path: '/admin/training' },
+        { name: 'Facilities Page', path: '/admin/facilities' },
+        { name: 'Bloodstock Page', path: '/admin/bloodstock' },
+        { name: 'Partnerships Page', path: '/admin/partnerships' },
         { name: 'Horses', path: '/admin/horses' },
         { name: 'Team', path: '/admin/team' },
         { name: 'Stories', path: '/admin/stories' },
         { name: 'News', path: '/admin/news' },
+        { name: 'Import / Export Data', path: '/admin/data' },
     ];
 
     const baseLinkClass = "block px-4 py-2 rounded-md text-sm font-medium transition-colors";

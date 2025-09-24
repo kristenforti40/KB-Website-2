@@ -18,8 +18,8 @@ const PageTitle: React.FC<{ title: string }> = ({ title }) => (
 const HorseCard: React.FC<{ horse: Horse }> = ({ horse }) => (
     <div className="bg-white/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg group transform hover:-translate-y-2 transition-transform duration-300 border border-stone-200/80">
         <div className="p-3">
-             <div className="overflow-hidden h-80 rounded-md">
-                <img src={horse.imageUrl} alt={horse.name} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 rounded-md" />
+             <div className="overflow-hidden h-80 rounded-md border-4 border-brand-teal">
+                <img src={horse.imageUrl} alt={horse.name} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
             </div>
         </div>
         <div className="p-6 pt-3">

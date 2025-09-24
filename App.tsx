@@ -27,6 +27,12 @@ import ManageNewsPage from './components/pages/admin/ManageNewsPage';
 import ManageStatsPage from './components/pages/admin/ManageStatsPage';
 import ManageHomepagePage from './components/pages/admin/ManageHomepagePage';
 import ManageBrandingPage from './components/pages/admin/ManageBrandingPage';
+import ManageMeetKeriPage from './components/pages/admin/ManageMeetKeriPage';
+import ManageTrainingPage from './components/pages/admin/ManageTrainingPage';
+import ManageFacilitiesPage from './components/pages/admin/ManageFacilitiesPage';
+import ManagePartnershipsPage from './components/pages/admin/ManagePartnershipsPage';
+import ManageBloodstockPage from './components/pages/admin/ManageBloodstockPage';
+import ManageDataPage from './components/pages/admin/ManageDataPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -55,10 +61,16 @@ const App: React.FC = () => {
                     <Route path="/homepage" element={<ManageHomepagePage />} />
                     <Route path="/branding" element={<ManageBrandingPage />} />
                     <Route path="/stats" element={<ManageStatsPage />} />
+                    <Route path="/meet-keri" element={<ManageMeetKeriPage />} />
+                    <Route path="/training" element={<ManageTrainingPage />} />
+                    <Route path="/facilities" element={<ManageFacilitiesPage />} />
+                    <Route path="/partnerships" element={<ManagePartnershipsPage />} />
+                    <Route path="/bloodstock" element={<ManageBloodstockPage />} />
                     <Route path="/horses" element={<ManageHorsesPage />} />
                     <Route path="/team" element={<ManageTeamPage />} />
                     <Route path="/stories" element={<ManageStoriesPage />} />
                     <Route path="/news" element={<ManageNewsPage />} />
+                    <Route path="/data" element={<ManageDataPage />} />
                   </Routes>
                 </AdminLayout>
               </ProtectedRoute>

@@ -1,4 +1,3 @@
-
 import React, { useState, FormEvent } from 'react';
 import { useContent } from '../../../context/ContentContext';
 
@@ -11,8 +10,10 @@ const ManageHomepagePage: React.FC = () => {
         const file = e.target.files?.[0];
         if (file) {
             const reader = new FileReader();
-            reader.onloadend = () => {
-                setNewImageUrl(reader.result as string);
+            reader.onload = () => {
+                if (typeof reader.result === 'string') {
+                    setNewImageUrl(reader.result);
+                }
             };
             reader.readAsDataURL(file);
         }
@@ -22,10 +23,9 @@ const ManageHomepagePage: React.FC = () => {
         e.preventDefault();
         if (newImageUrl) {
             updateHomePageHeroUrl(newImageUrl);
+            setNewImageUrl(''); // Clear preview
             setSaved(true);
             setTimeout(() => setSaved(false), 3000);
-        } else {
-            alert("Please upload a new image first.");
         }
     };
 

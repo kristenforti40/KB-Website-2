@@ -1,8 +1,6 @@
-import { Horse, TeamMember, SuccessStory, NavDropdown, NavLink, NewsPost, RacingStats } from './types';
+import { Horse, TeamMember, SuccessStory, NavDropdown, NavLink, NewsPost, RacingStats, MeetKeriPageContent, TrainingPageContent, FacilitiesPageContent, PartnershipsPageContent, BloodstockPageContent } from './types';
 
 export const DEFAULT_HERO_IMAGE = "https://i.postimg.cc/tgMfDZT5/Gzoktu2-WEAAf-JH2.jpg";
-
-export const DEFAULT_LOGO_BASE64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAJYCAYAAACdvI6gAAAAAXNSR0IArs4c6QAAIABJREFUeJzs7Xt8XFW57/vN/J3JdEsn020mk0wmySQkISQh4RASgg1kGRtGgG3s8wWso4sFFqyxdbFlk7W+8t67fV/r23rX1vXetl717t7X2u+11h5bF2NlsA0Ygg2EAAIhBAJI2u+0O91pujOZzO+b+c/vD4/dSRhCEhJC2p1PZpzZzEy+b37zfd/3bT4gCKIgCIIgCIIgCIJgDBjJ/eYEQRAEQRAEQRAEQbAGDLAAgCAIgqT8YDCYx+N5uVzebrf/6L61tXX06NHu7u4vLy/f2tq6devWq1evnjt3rr+/f2RkpLu7u7a2tpqamqamprS0tKam5psv/uTNN9988223/uKbb/z1N9/81d9/89s//OafP/30U/8jCIIgCIJgFBDAAgCCIAiSMlFREdMDBpIkJScnx3QAAUDh4eF6vf6dO3dOnDhx6tSpU6dOnTx58tSpk9OmT5+hYwCAwMDA3NxcT0/PyZMnU1NTo0ePDg8Pz8rKysvL6+vrS0xMDAgIUFZWVlVVZWxsbGxsTEtLi42NnTp1amRkpLS09Pbt24MHD3744Ycff/zxtWvXvvzyyzfffPP999//5JNP/vSnP/3sZz97+fLlISEhERERERERkZKS8uWXX37xxRdfunRJTU1NTk4uLS0tLy+vrKzMyMjIy8u7deuWvr5+cnKyra3txYsXDxw4UFBQEBcX5+joGBYW5uHhERYW5ujoGBwc7O3t7ejoWFZWVlZWtmnTJj09valTp0pKSlJTU/Pz83t6et6+fftPf/rTyZMnX3zxxbFjx8bExFy8eHH58uXjx4/v3Llz4cKFDx8+fPjw4efPn69bt+7TTz89ceKEiYmJjo5OYGAgIyPjjz/+OHDgQFZW1tLSUllZWXR0dGJiYlJSUnh4eGhoaHp6emxs7JUrVyIiIhISEjIyMrKyshISEhoaGpaWlpaWllZWVgYGBpKSkjo6OiIiIlZWVnp6ehkZGbW1tZWVlQkJCcHBwamrqxcvXjx//vz06dMvvvhicXFxcnJyQEAAIyMjaWlpeXl5QUFBRUVFRUVFUVFRQUFBcXFxZWVlOTk5OTk5WVlZeXl5RUVFQUFBcXFxQUFBRUVFeXl5WVlZOTk5cXFxQUFBQUFBRUVFWVlZWVlZOTk5OTk5cnJyRUVFQYCAgICAgICAgICAgICAgADQ6XSWlpaqqqqioqKioqLKysoCAgKcnJyenp5WVlYCAgKioqKampqqqqqysrKysjI/Pz8iIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi-i" name= "KB Racing Logo" width= "250" height= "250"/>'
 
 export const NAVIGATION_DROPDOWNS: NavDropdown[] = [
   {
@@ -19,8 +17,8 @@ export const NAVIGATION_DROPDOWNS: NavDropdown[] = [
     label: 'Services',
     links: [
       { label: 'Training', href: '/training' },
-      { label: 'Bloodstock', href: '/bloodstock' },
       { label: 'Facilities', href: '/facilities' },
+      { label: 'Bloodstock', href: '/bloodstock' },
       { label: 'Partnerships', href: '/partnerships' },
     ],
   },
@@ -72,4 +70,69 @@ export const RACING_STATS: RacingStats = {
         wins: 159,
         earnings: '$7,638,628'
     }
+};
+
+export const MEET_KERI_PAGE_CONTENT: MeetKeriPageContent = {
+  mainImageUrl: "https://i.postimg.cc/gJvySsPm/Main-kb.jpg",
+  galleryImage1Url: "https://i.postimg.cc/FsqfSS2Z/Two-kb.jpg",
+  galleryImage2Url: "https://i.postimg.cc/5ysCTkKd/3-Kb.png",
+  galleryImage3Url: "https://i.postimg.cc/2j1rZtms/KB-met-2.jpg",
+  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Her dedication and unique approach have led to remarkable success on the track.\n\nKeri believes in a hands-on approach, building a strong foundation of trust and communication with each horse in her care. This philosophy is the cornerstone of Keri Brion Racing.",
+};
+
+export const TRAINING_PAGE_CONTENT: TrainingPageContent = {
+  heroImageUrl: "https://i.postimg.cc/rpS9y48h/ai-22.png",
+  introText1: "Our training philosophy is built on individual attention, patience, and a deep understanding of the thoroughbred athlete. We tailor programs to bring out the best in each horse, focusing on their unique strengths and potential.",
+  introText2: "Our primary base of operations is at the world-class Fair Hill Training Center in Maryland, with access to a variety of turf and synthetic surfaces. We also strategically race at other premier East Coast tracks to place our horses in the best possible spots to succeed.",
+  flatTrainingText: "For flat racing, we emphasize speed, tactical awareness, and mental conditioning. Our regimen is designed to sharpen a horse's natural abilities, ensuring they are primed for peak performance on race day, from sprints to classic distances.",
+  jumpTrainingText: "Specializing in developing elite steeplechasers and hurdlers, our program focuses on building stamina, agility, and flawless jumping technique. We prepare horses for the demanding conditions of jump racing with a combination of schooling, gallops, and cross-training.",
+  resetAndRehabText: "We provide a serene and effective environment for horses needing time off to recover from injury or the rigors of a long campaign. Our reset and rehabilitation program focuses on mental and physical rejuvenation, utilizing therapies and customized turnout schedules to ensure they return to the track happy, sound, and ready to perform at their best.",
+  flatTrainingImage1Url: "https://picsum.photos/seed/flat1/400/300",
+  flatTrainingImage2Url: "https://picsum.photos/seed/flat2/400/300",
+  flatTrainingImage3Url: "https://picsum.photos/seed/flat3/400/300",
+  jumpTrainingImage1Url: "https://picsum.photos/seed/jump1/400/300",
+  jumpTrainingImage2Url: "https://picsum.photos/seed/jump2/400/300",
+  jumpTrainingImage3Url: "https://picsum.photos/seed/jump3/400/300",
+  resetAndRehabImage1Url: "https://picsum.photos/seed/rehab1/400/300",
+  resetAndRehabImage2Url: "https://picsum.photos/seed/rehab2/400/300",
+  resetAndRehabImage3Url: "https://picsum.photos/seed/rehab3/400/300",
+};
+
+export const FACILITIES_PAGE_CONTENT: FacilitiesPageContent = {
+  heroImageUrl: "https://i.postimg.cc/HLZwjYX7/Generated-Image-September-23-2025-12-51-AM.png",
+  introText1: "Our horses are stabled at world-class facilities that provide a safe, healthy, and stimulating environment.",
+  introText2: "We are based at Fair Hill Training Center, offering a variety of training surfaces and amenities designed for the modern thoroughbred. Explore the gallery below to see the variety of options offered at our Fair Hill barn.",
+  galleryImages: [
+    "https://picsum.photos/seed/facility1/600/500",
+    "https://picsum.photos/seed/facility2/600/500",
+    "https://picsum.photos/seed/facility3/600/500",
+    "https://picsum.photos/seed/facility4/600/500",
+    "https://picsum.photos/seed/facility5/600/500",
+    "https://picsum.photos/seed/facility6/600/500",
+    "https://picsum.photos/seed/facility7/600/500",
+    "https://picsum.photos/seed/facility8/600/500",
+  ],
+};
+
+export const PARTNERSHIPS_PAGE_CONTENT: PartnershipsPageContent = {
+  heroImageUrl: "https://i.postimg.cc/Y9RFh22P/KB-owners.jpg",
+  introText: "Experience the thrill of racehorse ownership with Keri Brion Racing. We offer various partnership opportunities to fit your goals and budget.\n\nWe are committed to providing a transparent, exciting, and rewarding ownership experience.",
+  thrillText: "Joining a racing partnership is more than just an investment; it's an entry into an exclusive world of passion, competition, and camaraderie. As a part of the KB Racing family, you'll gain behind-the-scenes access to the sport you love. Imagine the excitement of visiting your horse during morning training, discussing strategy with Keri, and of course, the unforgettable rush of leading your champion into the winner's circle. It's an experience filled with incredible moments and shared with a community of fellow enthusiasts.",
+  galleryImages: [
+    "https://picsum.photos/seed/partner1/600/500",
+    "https://picsum.photos/seed/partner2/600/500",
+    "https://picsum.photos/seed/partner3/600/500",
+    "https://picsum.photos/seed/partner4/600/500",
+    "https://picsum.photos/seed/partner5/600/500",
+    "https://picsum.photos/seed/partner6/600/500",
+  ],
+};
+
+export const BLOODSTOCK_PAGE_CONTENT: BloodstockPageContent = {
+  heroImageUrl: "https://i.postimg.cc/ydyGxRZz/goffs-2-1.jpg",
+  introText: "Finding the next champion starts with a keen eye for talent and a deep understanding of pedigrees.\n\nOur bloodstock services include private purchases, auction representation, and mating consultations. Detailed information about our approach to selecting top-tier racing prospects will be available here shortly.",
+  yearlingSalesUrl: "https://picsum.photos/seed/yearling/400/600",
+  internationalSalesUrl: "https://picsum.photos/seed/international/400/600",
+  privateSalesUrl: "https://picsum.photos/seed/private/400/600",
+  olderHorseSalesUrl: "https://picsum.photos/seed/olderhorse/400/600",
 };
