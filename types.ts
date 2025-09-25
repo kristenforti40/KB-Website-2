@@ -79,7 +79,6 @@ export interface FacilitiesPageContent {
 export interface PartnershipsPageContent {
   heroImageUrl: string;
   introText: string;
-  thrillText: string;
   galleryImages: string[];
 }
 

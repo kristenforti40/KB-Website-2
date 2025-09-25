@@ -108,8 +108,7 @@ export const FACILITIES_PAGE_CONTENT: FacilitiesPageContent = {
 
 export const PARTNERSHIPS_PAGE_CONTENT: PartnershipsPageContent = {
   heroImageUrl: "https://i.postimg.cc/Y9RFh22P/KB-owners.jpg",
-  introText: "Experience the thrill of racehorse ownership with Keri Brion Racing. We offer various partnership opportunities to fit your goals and budget.\n\nWe are committed to providing a transparent, exciting, and rewarding ownership experience.",
-  thrillText: "Joining a racing partnership is more than just an investment; it's an entry into an exclusive world of passion, competition, and camaraderie. As a part of the KB Racing family, you'll gain behind-the-scenes access to the sport you love. Imagine the excitement of visiting your horse during morning training, discussing strategy with Keri, and of course, the unforgettable rush of leading your champion into the winner's circle. It's an experience filled with incredible moments and shared with a community of fellow enthusiasts.",
+  introText: "Experience the thrill of racehorse ownership with Keri Brion Racing.\nWe offer various partnership and syndicate opportunities to fit your goals and budget.",
   galleryImages: [
     "https://picsum.photos/seed/partner1/600/500",
     "https://picsum.photos/seed/partner2/600/500",

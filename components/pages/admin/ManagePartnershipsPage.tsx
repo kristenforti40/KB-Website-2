@@ -123,7 +123,6 @@ const ManagePartnershipsPage: React.FC = () => {
                         <h2 className="text-xl font-semibold text-brand-teal mb-4">Introductory Text</h2>
                         <div className="space-y-4">
                             <TextAreaField label="Introductory Text" name="introText" value={formData.introText} onChange={handleTextChange} />
-                            <TextAreaField label="'Thrill of Ownership' Text" name="thrillText" value={formData.thrillText} onChange={handleTextChange} rows={6} />
                         </div>
                     </div>
                     <h2 className="text-xl font-semibold text-brand-teal mb-4 pt-4 border-t">Ownership Moments Gallery</h2>
