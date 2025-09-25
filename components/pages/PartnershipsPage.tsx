@@ -83,7 +83,7 @@ const PartnershipsPage: React.FC = () => {
         return <div>Loading...</div>;
     }
 
-    const introLines = partnershipsPageContent.introText.split('\n');
+    const introLines = partnershipsPageContent.introText.split('\n').filter(line => line.trim());
 
     return (
         <div>
@@ -106,7 +106,7 @@ const PartnershipsPage: React.FC = () => {
                     <div className="bg-white p-8 rounded-lg shadow-lg border border-stone-200 text-center mb-16">
                         <div className="text-stone-700">
                            {introLines[0] && <p className="text-2xl lg:text-3xl font-semibold">{introLines[0]}</p>}
-                           {introLines[1] && <p className="text-xl mt-2 text-stone-600">{introLines[1]}</p>}
+                           {introLines[1] && <p className="text-xl mt-4 text-stone-600">{introLines[1]}</p>}
                         </div>
                     </div>
                     

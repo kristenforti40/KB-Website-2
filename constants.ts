@@ -108,7 +108,7 @@ export const FACILITIES_PAGE_CONTENT: FacilitiesPageContent = {
 
 export const PARTNERSHIPS_PAGE_CONTENT: PartnershipsPageContent = {
   heroImageUrl: "https://i.postimg.cc/Y9RFh22P/KB-owners.jpg",
-  introText: "Experience the thrill of racehorse ownership with Keri Brion Racing.\nWe offer various partnership and syndicate opportunities to fit your goals and budget.",
+  introText: "Experience the thrill of racehorse ownership with Keri Brion Racing.\n\nWe offer various partnership and syndicate opportunities to fit your goals and budget.",
   galleryImages: [
     "https://picsum.photos/seed/partner1/600/500",
     "https://picsum.photos/seed/partner2/600/500",
