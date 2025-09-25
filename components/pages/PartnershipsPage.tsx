@@ -60,7 +60,7 @@ const PartnershipsPage: React.FC = () => {
                     </div>
 
                     <div className="text-center">
-                         <Link to="/contact" className="bg-brand-teal text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-80 transition-all duration-300 inline-block transform hover:scale-105">
+                         <Link to="/ownership-inquiry" className="bg-brand-teal text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-80 transition-all duration-300 inline-block transform hover:scale-105">
                             Inquire About Ownership
                         </Link>
                     </div>

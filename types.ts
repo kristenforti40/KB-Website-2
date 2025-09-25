@@ -14,13 +14,6 @@ export interface TeamMember {
   imageUrl: string;
 }
 
-export interface SuccessStory {
-  id: number;
-  title: string;
-  description: string;
-  imageUrl: string;
-}
-
 export interface NewsPost {
   id: number;
   title: string;
@@ -102,7 +95,6 @@ export interface BloodstockPageContent {
 export interface AllContent {
   horses: Horse[];
   teamMembers: TeamMember[];
-  successStories: SuccessStory[];
   newsPosts: NewsPost[];
   racingStats: RacingStats | null;
   homePageHeroUrl: string;

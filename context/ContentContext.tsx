@@ -1,14 +1,14 @@
 
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { AllContent, Horse, TeamMember, SuccessStory, NewsPost, RacingStats, MeetKeriPageContent, TrainingPageContent, FacilitiesPageContent, PartnershipsPageContent, BloodstockPageContent } from '../types';
-import { TOP_HORSES, TEAM_MEMBERS, SUCCESS_STORIES, NEWS_POSTS, RACING_STATS, DEFAULT_HERO_IMAGE, MEET_KERI_PAGE_CONTENT, TRAINING_PAGE_CONTENT, FACILITIES_PAGE_CONTENT, PARTNERSHIPS_PAGE_CONTENT, BLOODSTOCK_PAGE_CONTENT } from '../constants';
+import { AllContent, Horse, TeamMember, NewsPost, RacingStats, MeetKeriPageContent, TrainingPageContent, FacilitiesPageContent, PartnershipsPageContent, BloodstockPageContent } from '../types';
+import { TOP_HORSES, TEAM_MEMBERS, NEWS_POSTS, RACING_STATS, DEFAULT_HERO_IMAGE, MEET_KERI_PAGE_CONTENT, TRAINING_PAGE_CONTENT, FACILITIES_PAGE_CONTENT, PARTNERSHIPS_PAGE_CONTENT, BLOODSTOCK_PAGE_CONTENT } from '../constants';
 
 const DEFAULT_FAVICON = "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐎</text></svg>";
 
 interface ContentContextType {
     horses: Horse[];
     teamMembers: TeamMember[];
-    successStories: SuccessStory[];
     newsPosts: NewsPost[];
     racingStats: RacingStats | null;
     homePageHeroUrl: string;
@@ -21,7 +21,6 @@ interface ContentContextType {
     bloodstockPageContent: BloodstockPageContent | null;
     updateHorses: (newHorses: Horse[]) => void;
     updateTeamMembers: (newTeamMembers: TeamMember[]) => void;
-    updateSuccessStories: (newStories: SuccessStory[]) => void;
     updateNewsPosts: (newPosts: NewsPost[]) => void;
     updateRacingStats: (newStats: RacingStats) => void;
     updateHomePageHeroUrl: (newUrl: string) => void;
@@ -54,7 +53,6 @@ const initializeFromLocalStorage = <T,>(key: string, defaultValue: T): T => {
 export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [horses, setHorses] = useState<Horse[]>([]);
     const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
-    const [successStories, setSuccessStories] = useState<SuccessStory[]>([]);
     const [newsPosts, setNewsPosts] = useState<NewsPost[]>([]);
     const [racingStats, setRacingStats] = useState<RacingStats | null>(null);
     const [homePageHeroUrl, setHomePageHeroUrl] = useState<string>('');
@@ -80,7 +78,6 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
                 // If fetched successfully, set state from this master file
                 setHorses(data.horses);
                 setTeamMembers(data.teamMembers);
-                setSuccessStories(data.successStories);
                 setNewsPosts(data.newsPosts);
                 setRacingStats(data.racingStats);
                 setHomePageHeroUrl(data.homePageHeroUrl);
@@ -97,7 +94,6 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
                 // If fetch fails (e.g., local dev), initialize from local storage
                 setHorses(initializeFromLocalStorage('kbr_horses', TOP_HORSES));
                 setTeamMembers(initializeFromLocalStorage('kbr_team', TEAM_MEMBERS));
-                setSuccessStories(initializeFromLocalStorage('kbr_stories', SUCCESS_STORIES));
                 setNewsPosts(initializeFromLocalStorage('kbr_news', NEWS_POSTS));
                 setRacingStats(initializeFromLocalStorage('kbr_stats', RACING_STATS));
                 setHomePageHeroUrl(initializeFromLocalStorage('kbr_hero', DEFAULT_HERO_IMAGE));
@@ -124,7 +120,6 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
     const value = {
         horses,
         teamMembers,
-        successStories,
         newsPosts,
         racingStats,
         homePageHeroUrl,
@@ -137,7 +132,6 @@ export const ContentProvider: React.FC<{ children: ReactNode }> = ({ children })
         bloodstockPageContent,
         updateHorses: updateAndStore(setHorses, 'kbr_horses'),
         updateTeamMembers: updateAndStore(setTeamMembers, 'kbr_team'),
-        updateSuccessStories: updateAndStore(setSuccessStories, 'kbr_stories'),
         updateNewsPosts: updateAndStore(setNewsPosts, 'kbr_news'),
         updateRacingStats: updateAndStore(setRacingStats, 'kbr_stats'),
         updateHomePageHeroUrl: updateAndStore(setHomePageHeroUrl, 'kbr_hero'),

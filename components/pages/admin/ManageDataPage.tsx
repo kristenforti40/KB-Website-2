@@ -1,4 +1,5 @@
 
+
 import React, { useRef, useState } from 'react';
 import { useContent } from '../../../context/ContentContext';
 import { AllContent } from '../../../types';
@@ -13,7 +14,6 @@ const ManageDataPage: React.FC = () => {
         const allContent: AllContent = {
             horses: content.horses,
             teamMembers: content.teamMembers,
-            successStories: content.successStories,
             newsPosts: content.newsPosts,
             racingStats: content.racingStats,
             homePageHeroUrl: content.homePageHeroUrl,
@@ -52,7 +52,7 @@ const ManageDataPage: React.FC = () => {
 
                 // Comprehensive validation
                 const requiredKeys: (keyof AllContent)[] = [
-                    'horses', 'teamMembers', 'successStories', 'newsPosts',
+                    'horses', 'teamMembers', 'newsPosts',
                     'racingStats', 'homePageHeroUrl', 'logoUrl', 'faviconUrl',
                     'meetKeriPageContent', 'trainingPageContent', 'facilitiesPageContent',
                     'partnershipsPageContent', 'bloodstockPageContent'
@@ -70,7 +70,6 @@ const ManageDataPage: React.FC = () => {
                 // Update all content
                 content.updateHorses(validData.horses);
                 content.updateTeamMembers(validData.teamMembers);
-                content.updateSuccessStories(validData.successStories);
                 content.updateNewsPosts(validData.newsPosts);
                 if (validData.racingStats) content.updateRacingStats(validData.racingStats);
                 content.updateHomePageHeroUrl(validData.homePageHeroUrl);

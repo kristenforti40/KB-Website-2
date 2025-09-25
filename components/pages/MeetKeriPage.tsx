@@ -22,8 +22,8 @@ const MeetKeriPage: React.FC = () => {
     
     const galleryImages = [
         { src: meetKeriPageContent.galleryImage1Url, alt: "Gallery image 1" },
-        { src: meetKeriPageContent.galleryImage3Url, alt: "Gallery image 3" },
         { src: meetKeriPageContent.galleryImage2Url, alt: "Gallery image 2" },
+        { src: meetKeriPageContent.galleryImage3Url, alt: "Gallery image 3" },
     ];
 
     return (
@@ -55,12 +55,28 @@ const MeetKeriPage: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 place-items-center">
+                {/* X Follow Button Section */}
+                <div className="my-16 md:my-24 flex justify-center">
+                    <a 
+                        href="https://x.com/Keri145" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-brand-teal text-white font-bold py-6 px-16 text-2xl rounded-lg hover:bg-opacity-80 transition-all duration-300 inline-block transform hover:scale-105"
+                    >
+                        Follow Keri on X
+                    </a>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-center">
                     {galleryImages.map((image, index) => (
-                        <div key={index}>
+                        <div key={index} className="w-full">
                             <div className="bg-brand-teal p-1 rounded-md shadow-2xl">
                                 <div className="bg-white p-2 rounded-sm">
-                                    <img src={image.src} alt={image.alt} className="w-full max-w-xs sm:max-w-sm lg:w-96 h-auto object-cover rounded-sm" />
+                                    <img 
+                                        src={image.src} 
+                                        alt={image.alt} 
+                                        className="w-full h-auto rounded-sm" 
+                                    />
                                 </div>
                             </div>
                         </div>

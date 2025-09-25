@@ -90,7 +90,13 @@ const RacingStatsSection: React.FC = () => {
 
 
 const HomePage: React.FC = () => {
-    const { homePageHeroUrl } = useContent();
+    const { homePageHeroUrl, newsPosts } = useContent();
+    
+    const recentNewsWithImages = [...newsPosts]
+        .filter(post => post.imageUrl)
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .slice(0, 2);
+
     return (
         <div>
             {/* Hero Section */}
@@ -142,9 +148,41 @@ const HomePage: React.FC = () => {
                     </div>
                 </div>
             </section>
+            
+            {/* Recent News Section */}
+            {recentNewsWithImages.length > 0 && (
+                <section className="py-10 md:py-12 bg-white border-y border-stone-200">
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl md:text-4xl font-bold text-brand-teal">Recent News</h2>
+                            <p className="text-lg text-stone-600 mt-2 max-w-3xl mx-auto">The latest updates from the team.</p>
+                        </div>
+                        <div className="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+                            {recentNewsWithImages.map(post => (
+                                <Link to={`/news/${post.id}`} key={post.id} className="block group bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 border border-stone-200/80">
+                                    <div className="grid grid-cols-1 md:grid-cols-3">
+                                        <div className="md:col-span-1 overflow-hidden h-48 md:h-full">
+                                            <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                                        </div>
+                                        <div className="md:col-span-2 flex items-center">
+                                            <div className="border-l-4 border-brand-teal h-3/4"></div>
+                                            <div className="p-6 flex flex-col justify-center">
+                                                <p className="text-sm text-stone-500 mb-2">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                                <h3 className="text-xl font-bold text-stone-900 mb-3 group-hover:text-brand-teal transition-colors duration-300">{post.title}</h3>
+                                                <p className="text-stone-600 line-clamp-3 mb-4">{post.content}</p>
+                                                <span className="font-semibold text-brand-teal self-start">Read More &rarr;</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* Stats Section */}
-            <section className="pt-0 pb-12 md:pb-16">
+            <section className="pt-12 md:pt-16 pb-12 md:pb-16">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <RacingStatsSection />
                 </div>

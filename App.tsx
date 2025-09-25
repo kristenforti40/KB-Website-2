@@ -1,4 +1,5 @@
 
+
 import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
@@ -7,7 +8,6 @@ import HomePage from './components/pages/HomePage';
 import MeetKeriPage from './components/pages/MeetKeriPage';
 import TopHorsesPage from './components/pages/TopHorsesPage';
 import MeetTheTeamPage from './components/pages/MeetTheTeamPage';
-import SuccessStoriesPage from './components/pages/SuccessStoriesPage';
 import TrainingPage from './components/pages/TrainingPage';
 import PartnershipsPage from './components/pages/PartnershipsPage';
 import BloodstockPage from './components/pages/BloodstockPage';
@@ -22,7 +22,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminDashboard from './components/pages/admin/AdminDashboard';
 import ManageHorsesPage from './components/pages/admin/ManageHorsesPage';
 import ManageTeamPage from './components/pages/admin/ManageTeamPage';
-import ManageStoriesPage from './components/pages/admin/ManageStoriesPage';
 import ManageNewsPage from './components/pages/admin/ManageNewsPage';
 import ManageStatsPage from './components/pages/admin/ManageStatsPage';
 import ManageHomepagePage from './components/pages/admin/ManageHomepagePage';
@@ -33,6 +32,8 @@ import ManageFacilitiesPage from './components/pages/admin/ManageFacilitiesPage'
 import ManagePartnershipsPage from './components/pages/admin/ManagePartnershipsPage';
 import ManageBloodstockPage from './components/pages/admin/ManageBloodstockPage';
 import ManageDataPage from './components/pages/admin/ManageDataPage';
+import InquiryPage from './components/pages/InquiryPage';
+import PartnershipInquiryPage from './components/pages/PartnershipInquiryPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -68,7 +69,6 @@ const App: React.FC = () => {
                     <Route path="/bloodstock" element={<ManageBloodstockPage />} />
                     <Route path="/horses" element={<ManageHorsesPage />} />
                     <Route path="/team" element={<ManageTeamPage />} />
-                    <Route path="/stories" element={<ManageStoriesPage />} />
                     <Route path="/news" element={<ManageNewsPage />} />
                     <Route path="/data" element={<ManageDataPage />} />
                   </Routes>
@@ -92,7 +92,6 @@ const MainApp = () => (
         <Route path="/meet-keri" element={<MeetKeriPage />} />
         <Route path="/horses" element={<TopHorsesPage />} />
         <Route path="/team" element={<MeetTheTeamPage />} />
-        <Route path="/success-stories" element={<SuccessStoriesPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/news/:postId" element={<NewsPostPage />} />
         <Route path="/training" element={<TrainingPage />} />
@@ -100,6 +99,8 @@ const MainApp = () => (
         <Route path="/bloodstock" element={<BloodstockPage />} />
         <Route path="/facilities" element={<FacilitiesPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/inquire" element={<InquiryPage />} />
+        <Route path="/ownership-inquiry" element={<PartnershipInquiryPage />} />
       </Routes>
     </main>
     <Footer />

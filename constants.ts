@@ -1,4 +1,4 @@
-import { Horse, TeamMember, SuccessStory, NavDropdown, NavLink, NewsPost, RacingStats, MeetKeriPageContent, TrainingPageContent, FacilitiesPageContent, PartnershipsPageContent, BloodstockPageContent } from './types';
+import { Horse, TeamMember, NavDropdown, NavLink, NewsPost, RacingStats, MeetKeriPageContent, TrainingPageContent, FacilitiesPageContent, PartnershipsPageContent, BloodstockPageContent } from './types';
 
 export const DEFAULT_HERO_IMAGE = "https://i.postimg.cc/tgMfDZT5/Gzoktu2-WEAAf-JH2.jpg";
 
@@ -9,7 +9,6 @@ export const NAVIGATION_DROPDOWNS: NavDropdown[] = [
       { label: 'Meet Keri', href: '/meet-keri' },
       { label: 'Meet the Team', href: '/team' },
       { label: 'Top Horses', href: '/horses' },
-      { label: 'Success Stories', href: '/success-stories' },
       { label: 'News', href: '/news' },
     ],
   },
@@ -46,15 +45,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { id: 3, name: 'Michael Chen', role: 'Exercise Rider', bio: 'Michael\'s skill in the saddle helps develop our horses\' strength and stamina, preparing them for the rigors of competition.', imageUrl: 'https://picsum.photos/seed/team3/400/400' },
 ];
 
-export const SUCCESS_STORIES: SuccessStory[] = [
-    { id: 1, title: 'Grade 1 Victory at Saratoga', description: 'A longshot victory that stunned the racing world, showcasing our team\'s ability to prepare a horse for the biggest stage. It was a day of pure joy and validation of our hard work.', imageUrl: 'https://picsum.photos/seed/success1/500/300' },
-    { id: 2, 'title': 'Claimer to Champion', description: 'We claimed a horse for a modest sum and developed him into a multiple stakes winner. This story is a testament to our eye for talent and patient training methods.', imageUrl: 'https://picsum.photos/seed/success2/500/300' },
-    { id: 3, 'title': 'Yearling Purchase to Classic Contender', description: 'From the sales ring to the starting gate of a classic race, this journey was a dream come true for the ownership group. It highlighted our expertise in bloodstock selection and development.', imageUrl: 'https://picsum.photos/seed/success3/500/300' },
-];
-
 export const NEWS_POSTS: NewsPost[] = [
     { id: 1, title: 'Big Win at Belmont!', date: '2024-05-20', content: 'In a thrilling finish, our star mare "Starlight Sprint" captured the Grade 2 Acorn Stakes at Belmont Park. It was a testament to her heart and the team\'s hard work. We are incredibly proud of her performance and look forward to her next start!', imageUrl: 'https://picsum.photos/seed/news1/800/400' },
-    // FIX: Removed duplicate 'content' property.
     { id: 2, title: 'Welcome New Additions to the Barn', date: '2024-05-15', content: 'We are excited to welcome two promising yearlings to the Keri Brion Racing family. A colt by "Champion Sire" and a filly by "Speedy Dam" have settled in nicely and are showing great potential. We can\'t wait to see what the future holds for them.' },
     { id: 3, title: 'Fair Hill Training Update', date: '2024-05-10', content: 'The horses are loving the spring weather at Fair Hill. Morning works have been sharp, and the entire string is in excellent condition. We are gearing up for a busy and exciting summer racing season at Saratoga and Monmouth Park.', imageUrl: 'https://picsum.photos/seed/news3/800/400' },
 ];

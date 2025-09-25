@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useContent } from '../../context/ContentContext';
 
 const TrainingPage: React.FC = () => {
@@ -90,6 +91,16 @@ const TrainingPage: React.FC = () => {
                     </div>
                 </div>
             </div>
+            
+            {/* CTA Section */}
+            <section className="bg-stone-100 py-12 md:py-16 border-t border-stone-200">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 className="text-3xl font-bold text-stone-900 mb-4">Have a horse that would excel in our program?</h2>
+                    <Link to="/inquire" className="bg-brand-teal text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-80 transition-all duration-300 inline-block transform hover:scale-105">
+                        Inquire Today!
+                    </Link>
+                </div>
+            </section>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 
+
 import React, { ReactNode } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -22,7 +23,6 @@ const AdminLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
         { name: 'Partnerships Page', path: '/admin/partnerships' },
         { name: 'Horses', path: '/admin/horses' },
         { name: 'Team', path: '/admin/team' },
-        { name: 'Stories', path: '/admin/stories' },
         { name: 'News', path: '/admin/news' },
         { name: 'Import / Export Data', path: '/admin/data' },
     ];

@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useContent } from '../../../context/ContentContext';
@@ -21,7 +22,7 @@ const ActionCard: React.FC<{ title: string; link: string; children: React.ReactN
 
 
 const AdminDashboard: React.FC = () => {
-    const { horses, teamMembers, successStories, newsPosts } = useContent();
+    const { horses, teamMembers, newsPosts } = useContent();
 
     return (
         <div>
@@ -35,7 +36,6 @@ const AdminDashboard: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <StatCard title="Top Horses" count={horses.length} link="/admin/horses" />
                     <StatCard title="Team Members" count={teamMembers.length} link="/admin/team" />
-                    <StatCard title="Success Stories" count={successStories.length} link="/admin/stories" />
                     <StatCard title="News Posts" count={newsPosts.length} link="/admin/news" />
                 </div>
             </div>
@@ -70,7 +70,7 @@ const AdminDashboard: React.FC = () => {
                     </ActionCard>
                      <ActionCard title="Partnerships Page" link="/admin/partnerships">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.289 2.72a3 3 0 0 1-4.682-2.72 9.094 9.094 0 0 1 3.741-.479m7.289 2.72-7.289-2.72m0 0a3 3 0 1 0-5.864 2.14 3 3 0 0 0 5.864-2.14ZM12 14.25a3 3 0 1 0-5.864 2.14 3 3 0 0 0 5.864-2.14Zm5.864 2.14a3 3 0 1 0-5.864-2.14 3 3 0 0 0 5.864 2.14ZM9 11.25a3 3 0 1 0-5.864 2.14 3 3 0 0 0 5.864-2.14Z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.289 2.72a3 3 0 0 1-4.682-2.72 9.094 9.094 0 0 1 3.741-.479m7.289 2.72-7.289-2.72m0 0a3 3 0 1 0-5.864 2.14 3 3 0 0 0 5.864-2.14ZM12 14.25a3 3 0 1 0-5.864 2.14 3 3 0 0 0 5.864 2.14Zm5.864 2.14a3 3 0 1 0-5.864-2.14 3 3 0 0 0 5.864 2.14ZM9 11.25a3 3 0 1 0-5.864 2.14 3 3 0 0 0 5.864-2.14Z" />
                         </svg>
                     </ActionCard>
                      <ActionCard title="Racing Stats" link="/admin/stats">
